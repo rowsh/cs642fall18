@@ -28,4 +28,5 @@ module "bastion" {
   subnet_id = "${module.vpc.public_subnets}"
   vpc_id    = "${module.vpc.vpc_id}"
   template  = "../prod/config.tpl"
+  cidr_blocks = ["148.166.0.0/16"]
 }

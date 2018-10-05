@@ -5,3 +5,7 @@ variable "subnet_id" {
 }
 
 variable "template" {}
+
+variable "cidr_blocks" {
+  type = "list"
+}
