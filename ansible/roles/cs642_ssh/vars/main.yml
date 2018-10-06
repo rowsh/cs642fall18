@@ -1,0 +1,9 @@
+---
+# vars file for cs642_ssh
+users:
+   - henrygallo
+   - ericschmitt
+   - abdullah
+ #    - aldualrahman
+   - michaelstroumbakis
+ #    - rachelgonzales
