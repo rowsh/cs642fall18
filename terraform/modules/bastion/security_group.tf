@@ -1,5 +1,6 @@
 resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh_shu"
+  #name        = "allow_ssh_shu"
+  name        = "${var.sec_group_name}"
   description = "Allow all inbound 22"
   vpc_id      = "${var.vpc_id}"
 

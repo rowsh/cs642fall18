@@ -24,11 +24,32 @@ module "vpc" {
 
 # bastion host
 module "bastion" {
-  source          = "../modules/bastion"
-  subnet_id       = "${module.vpc.public_subnets}"
-  vpc_id          = "${module.vpc.vpc_id}"
-  template        = "../prod/config.tpl"
-  cidr_blocks     = ["148.166.0.0/16"]
-  public_key_path = "/Users/hgallo/.ssh/henrygallo.pub"
-  key_name        = "cs642fall18"
+  source           = "../modules/bastion"
+  subnet_id        = "${module.vpc.public_subnets}"
+  vpc_id           = "${module.vpc.vpc_id}"
+  template         = "../prod/config.tpl"
+  cidr_blocks      = ["148.166.0.0/16"]
+  public_key_path  = "/Users/hgallo/.ssh/henrygallo.pub"
+  key_name         = "cs642fall18"
+  sec_group_name   = "allow_ssh_shu"
+  placement_name   = "bastion"
+  max_size         = 1
+  min_size         = 1
+  desired_capacity = 1
+}
+
+# bastion host
+module "ansible_targets" {
+  source           = "../modules/bastion"
+  subnet_id        = "${module.vpc.private_subnets}"
+  vpc_id           = "${module.vpc.vpc_id}"
+  template         = "../prod/config.tpl"
+  cidr_blocks      = ["10.0.103.148/32"]
+  public_key_path  = "/Users/hgallo/.ssh/henrygallo.pub"
+  key_name         = "cs642fall18Internal"
+  sec_group_name   = "internal_ssh"
+  placement_name   = "internals"
+  max_size         = 7
+  min_size         = 1
+  desired_capacity = 6
 }
