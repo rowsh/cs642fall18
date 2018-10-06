@@ -16,16 +16,15 @@ resource "aws_autoscaling_group" "bar" {
   launch_configuration = "${aws_launch_configuration.as_conf.name}"
   vpc_zone_identifier  = ["${var.subnet_id}"]
 
-  initial_lifecycle_hook {
-    name                 = "bastion_lifecycle"
-    default_result       = "CONTINUE"
-    heartbeat_timeout    = 2000
-    lifecycle_transition = "autoscaling:EC2_INSTANCE_LAUNCHING"
-
+#  initial_lifecycle_hook {
+#    name                 = "bastion_lifecycle"
+#    default_result       = "CONTINUE"
+#    heartbeat_timeout    = 2000
+#    lifecycle_transition = "autoscaling:EC2_INSTANCE_LAUNCHING"
 
     #    notification_target_arn = "arn:aws:sqs:us-east-1:444455556666:queue1*"
     #    role_arn                = "arn:aws:iam::123456789012:role/S3Access"
-  }
+#  }
 
   tag {
     key                 = "name"
