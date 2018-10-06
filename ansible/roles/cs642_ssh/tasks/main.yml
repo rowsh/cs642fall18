@@ -15,6 +15,7 @@
   authorized_key:
    user: "{{ item }}"
    state: present
-   key: "{{ lookup('file', '/Users/hgallo/Downloads/{{ item }}.pub') }}"
+   #key: "{{ lookup('file', '/Users/hgallo/Downloads/{{ item }}.pub') }}"
+   key: "{{ lookup('file', './roles/cs642_ssh/files/{{ item }}.pub') }}"
   with_items:
     - "{{ users }}"
