@@ -1,0 +1,8 @@
+---
+- name: adding users to bastion
+  hosts: bastion
+  user: ubuntu
+  become: yes 
+  
+  roles:
+    - cs642_ssh
