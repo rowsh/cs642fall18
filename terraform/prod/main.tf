@@ -44,7 +44,7 @@ module "ansible_targets" {
   subnet_id        = "${module.vpc.private_subnets}"
   vpc_id           = "${module.vpc.vpc_id}"
   template         = "../prod/config.tpl"
-  cidr_blocks      = ["10.0.103.148/32"]
+  cidr_blocks      = ["10.0.102.85/32"]
   public_key_path  = "/Users/hgallo/.ssh/henrygallo.pub"
   key_name         = "cs642fall18Internal"
   sec_group_name   = "internal_ssh"
